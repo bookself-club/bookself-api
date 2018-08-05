@@ -33,12 +33,17 @@ defmodule Bookself.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      # == Phoenix dependences
       {:phoenix, "~> 1.3.2"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      # == App Dependences
+      # Static code analysis tool for the Elixir language with a focus on
+      # teaching and code consistency
+      {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false}
     ]
   end
 

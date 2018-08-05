@@ -1,4 +1,5 @@
 defmodule Bookself.Application do
+  @moduledoc false
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -12,7 +13,8 @@ defmodule Bookself.Application do
       supervisor(Bookself.Repo, []),
       # Start the endpoint when the application starts
       supervisor(BookselfWeb.Endpoint, []),
-      # Start your own worker by calling: Bookself.Worker.start_link(arg1, arg2, arg3)
+      # Start your own worker by calling:
+      #  Bookself.Worker.start_link(arg1, arg2, arg3)
       # worker(Bookself.Worker, [arg1, arg2, arg3]),
     ]
 
