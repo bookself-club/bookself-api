@@ -43,7 +43,9 @@ defmodule Bookself.Mixfile do
       # == App Dependences
       # Static code analysis tool for the Elixir language with a focus on
       # teaching and code consistency
-      {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false}
+      {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
+      # Security-focused static analysis for the Phoenix Framework
+      {:sobelow, "~> 0.7.1", only: [:dev, :test], runtime: false},
     ]
   end
 
