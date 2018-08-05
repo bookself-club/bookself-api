@@ -41,6 +41,11 @@ defmodule Bookself.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       # == App Dependences
+      # GraphQL with absinthe
+      {:absinthe, "~> 1.4.13"},
+      {:absinthe_plug, "~> 1.4.5"},
+      {:absinthe_phoenix, "~> 1.4.3"},
+      {:absinthe_relay, "~> 1.4.3"},
       # Static code analysis tool for the Elixir language with a focus on
       # teaching and code consistency
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
