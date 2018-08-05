@@ -3,6 +3,7 @@ defmodule BookselfWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug BookselfWeb.Context
   end
 
   scope "/api", BookselfWeb do

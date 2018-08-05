@@ -46,9 +46,15 @@ defmodule Bookself.Mixfile do
       {:absinthe_plug, "~> 1.4.5"},
       {:absinthe_phoenix, "~> 1.4.3"},
       {:absinthe_relay, "~> 1.4.3"},
+      # Bcrypt password hashing algorithm
+      {:bcrypt_elixir, "~> 1.0"},
+      # Ecto type for saving encrypted passwords
+      {:comeonin_ecto_password, "~> 2.1"},
       # Static code analysis tool for the Elixir language with a focus on
       # teaching and code consistency
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
+      # JWT Library
+      {:joken, "~> 1.5"},
       # Security-focused static analysis for the Phoenix Framework
       {:sobelow, "~> 0.7.1", only: [:dev, :test], runtime: false},
     ]
