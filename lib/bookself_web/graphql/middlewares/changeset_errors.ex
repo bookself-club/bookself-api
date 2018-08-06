@@ -2,8 +2,10 @@ defmodule BookselfWeb.GraphQL.Middlewares.ChangesetErrors do
   @moduledoc false
   @behaviour Absinthe.Middleware
 
+  @doc """
+  Deal with Ecto changeset errors, pasing to expect format
+  """
   def call(res, _) do
-    # to be completed
     with %{errors: [%Ecto.Changeset{} = changeset]} <- res do
       %{res |
         value: %{errors: transform_errors(changeset)},

@@ -1,9 +1,15 @@
 defmodule BookselfWeb.Authentication do
-  @moduledoc false
+  @moduledoc """
+  This module deals with parse and verify [JWT tokens](https://jwt.io)
+  """
+
   import Joken
 
   @secret System.get_env("JWT_SECRET") || "default salt"
 
+  @doc """
+  Create a [JWT token](https://jwt.io) with the user e-mail and name
+  """
   def sign_user(user) do
     %{email: user.email , name: user.name}
     |> token
@@ -12,6 +18,9 @@ defmodule BookselfWeb.Authentication do
     |> get_compact
   end
 
+  @doc """
+  Decode the [JWT token](https://jwt.io) and return the user e-mail and name
+  """
   def verify_token(token) do
     token
     |> decode_token

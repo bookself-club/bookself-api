@@ -53,6 +53,8 @@ defmodule Bookself.Mixfile do
       # Static code analysis tool for the Elixir language with a focus on
       # teaching and code consistency
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
+      # Produces HTML and EPUB documentation for Elixir projects
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
       # JWT Library
       {:joken, "~> 1.5"},
       # Security-focused static analysis for the Phoenix Framework

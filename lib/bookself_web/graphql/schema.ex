@@ -14,6 +14,7 @@ defmodule BookselfWeb.GraphQL.Schema do
   # Mutations
   import_types BookselfWeb.GraphQL.Accounts.Mutations
 
+  # Middlewares
   def middleware(middleware, _field, %{identifier: :mutation}) do
     middleware ++ [Middlewares.ChangesetErrors]
   end
