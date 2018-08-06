@@ -55,6 +55,8 @@ defmodule Bookself.Mixfile do
       # Static code analysis tool for the Elixir language with a focus on
       # teaching and code consistency
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
+      # Simplify deployments in Elixir with OTP releases
+      {:distillery, "~> 2.0.0-rc.8"},
       # Coverage report tool for Elixir with coveralls.io integration
       {:excoveralls, "~> 0.8", only: :test},
       # Produces HTML and EPUB documentation for Elixir projects
