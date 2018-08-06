@@ -31,7 +31,7 @@ defmodule BookselfWeb.GraphQL.Accounts.Resolvers do
   """
   def update_profile(_, %{input: profile_input}, %{context: %{current_user: current_user}}) do
     with {:ok, user} <- Accounts.update_user(current_user, profile_input) do
-      {:ok, %{ user: user}}
+      {:ok, %{user: user}}
     end
   end
 

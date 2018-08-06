@@ -10,7 +10,9 @@ defmodule Bookself.Mixfile do
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test]
     ]
   end
 
@@ -20,12 +22,12 @@ defmodule Bookself.Mixfile do
   def application do
     [
       mod: {Bookself.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ex_machina]
     ]
   end
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(:test), do: ["lib", "test/support", "test/factories"]
   defp elixirc_paths(_),     do: ["lib"]
 
   # Specifies your project dependencies.
@@ -53,8 +55,12 @@ defmodule Bookself.Mixfile do
       # Static code analysis tool for the Elixir language with a focus on
       # teaching and code consistency
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
+      # Coverage report tool for Elixir with coveralls.io integration
+      {:excoveralls, "~> 0.8", only: :test},
       # Produces HTML and EPUB documentation for Elixir projects
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      # Create test data for Elixir applications
+      {:ex_machina, "~> 2.2", only: :test},
       # JWT Library
       {:joken, "~> 1.5"},
       # Security-focused static analysis for the Phoenix Framework
