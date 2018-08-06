@@ -4,15 +4,9 @@ defmodule BookselfWeb.GraphQL.Schema do
 
   alias BookselfWeb.GraphQL.Middlewares
 
-  # Schemas
-  import_types BookselfWeb.GraphQL.Accounts.Schemas
-  import_types BookselfWeb.GraphQL.Common.Schemas
-
-  # Queries
-  import_types BookselfWeb.GraphQL.Accounts.Queries
-
-  # Mutations
-  import_types BookselfWeb.GraphQL.Accounts.Mutations
+  import_types BookselfWeb.GraphQL.Types
+  import_types BookselfWeb.GraphQL.Queries
+  import_types BookselfWeb.GraphQL.Mutations
 
   # Middlewares
   def middleware(middleware, _field, %{identifier: :mutation}) do
@@ -25,9 +19,11 @@ defmodule BookselfWeb.GraphQL.Schema do
 
   query do
     import_fields :account_queries
+    import_fields :library_queries
   end
 
   mutation do
     import_fields :account_mutations
+    import_fields :library_mutations
   end
 end

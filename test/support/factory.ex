@@ -4,5 +4,7 @@ defmodule Bookself.Factory do
   """
 
   use ExMachina.Ecto, repo: Bookself.Repo
+
+  use Bookself.LibraryFactory
   use Bookself.UserFactory
 end

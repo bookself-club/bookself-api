@@ -1,4 +1,4 @@
-defmodule BookselfWeb.GraphQL.Common.Schemas do
+defmodule BookselfWeb.GraphQL.Common.Types do
   @moduledoc false
   use Absinthe.Schema.Notation
 
