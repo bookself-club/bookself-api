@@ -16,3 +16,4 @@ erl_crash.dump
 .sobelow
 .env
 /doc
+/cover
