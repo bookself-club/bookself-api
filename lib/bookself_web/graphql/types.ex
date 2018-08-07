@@ -3,6 +3,7 @@ defmodule BookselfWeb.GraphQL.Types do
   use Absinthe.Schema.Notation
 
   import_types BookselfWeb.GraphQL.Common.Types
+  import_types BookselfWeb.GraphQL.Common.Scalar
 
   import_types BookselfWeb.GraphQL.Accounts.Types
   import_types BookselfWeb.GraphQL.Libraries.Types

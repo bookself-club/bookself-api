@@ -1,5 +1,8 @@
 defmodule BookselfWeb.GraphQL.Libraries.Resolvers do
   @moduledoc false
+
+  @google_api Application.get_env(:bookself, :google_api)
+
   alias Bookself.Libraries
 
   @doc """
@@ -44,5 +47,14 @@ defmodule BookselfWeb.GraphQL.Libraries.Resolvers do
 
   defp load_library(user, id) do
     Libraries.get_library(user, id)
+  end
+
+  @doc """
+  Search book on Google API
+  """
+  def search_books(_, %{filter: filter}, _) do
+    with {:ok, books} <- @google_api.search_books(filter) do
+      {:ok, books}
+    end
   end
 end

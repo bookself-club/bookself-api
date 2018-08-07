@@ -11,5 +11,13 @@ defmodule BookselfWeb.GraphQL.Libraries.Queries do
       middleware Middlewares.Authorize, :any
       resolve &Resolvers.list_libraries/3
     end
+
+    @desc "Search books"
+    field :search_books, list_of(:book) do
+      arg :filter, non_null(:string)
+
+      middleware Middlewares.Authorize, :any
+      resolve &Resolvers.search_books/3
+    end
   end
 end

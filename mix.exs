@@ -63,8 +63,12 @@ defmodule Bookself.Mixfile do
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
       # Create test data for Elixir applications
       {:ex_machina, "~> 2.2", only: :test},
+      # HTTP client
+      {:httpoison, "~> 1.0"},
       # JWT Library
       {:joken, "~> 1.5"},
+      # JSON library
+      {:poison, "~> 3.1"},
       # Security-focused static analysis for the Phoenix Framework
       {:sobelow, "~> 0.7.1", only: [:dev, :test], runtime: false},
     ]

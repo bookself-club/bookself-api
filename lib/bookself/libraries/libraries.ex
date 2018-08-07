@@ -7,6 +7,19 @@ defmodule Bookself.Libraries do
 
   alias Bookself.Accounts.User
   alias Bookself.Libraries.Library
+  alias Bookself.Libraries.Book
+
+  @doc """
+  Upsert books
+  """
+  def insert_or_update_book(%Book{} = attrs) do
+    case Repo.get_by(Book, external_id: attrs.external_id) do
+      %Book{} = book -> book
+      _ ->
+        {:ok, book } = Repo.insert(attrs)
+        book
+    end
+  end
 
   @doc """
   Returns all libraries from user

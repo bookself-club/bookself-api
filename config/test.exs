@@ -17,3 +17,7 @@ config :bookself, Bookself.Repo,
   database: "bookself_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Client to connect with Google API for books
+config :bookself, :google_api, Bookself.GoogleAPI.Sandbox
+config :bookself, :google_api_url, "http://localhost:4000/"

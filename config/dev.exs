@@ -44,3 +44,7 @@ config :bookself, Bookself.Repo,
   database: "bookself_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Client to connect with Google API for books
+config :bookself, :google_api, Bookself.GoogleAPI.HTTPClient
+config :bookself, :google_api_url, "https://www.googleapis.com/books/v1/volumes"
