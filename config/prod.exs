@@ -60,7 +60,7 @@ config :logger, level: :info
 #
 
 # Client to connect with Google API for books
-config :bookself, :google_api, Bookself.GoogleApi.HTTPClient
+config :bookself, :google_api, Bookself.GoogleAPI.HTTPClient
 config :bookself, :google_api_url, "https://www.googleapis.com/books/v1/volumes"
 
 # Finally import the config/prod.secret.exs
