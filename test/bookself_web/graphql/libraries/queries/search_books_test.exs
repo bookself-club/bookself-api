@@ -32,4 +32,21 @@ defmodule BookselfWeb.GraphQL.Libraries.Queries.SearchBooksTest do
       "searchBooks" => [%{"id" => "1", "title" => "Title"}]
     }} = json_response(response, 200)
   end
+
+  test "returns unauthorized error when no token was provide in HEADERS", %{conn: conn} do
+    conn = delete_req_header(conn, "authorization")
+
+    options = %{query: @query}
+    response = post(conn, "/graphql", options)
+
+    assert %{
+      "data" => %{
+        "searchBooks" => nil
+      },
+      "errors" => [%{
+        "message" => "unauthorized",
+        "path" => _
+      }]
+    } = json_response(response, 200)
+  end
 end

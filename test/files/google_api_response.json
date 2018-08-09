@@ -1,0 +1,105 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 405,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "EXID-100000",
+   "etag": "ETAG",
+   "selfLink": "https://api-book.google.com/EXID-100000",
+   "volumeInfo": {
+    "title": "Book",
+    "authors": [
+     "Author"
+    ],
+    "publisher": "Publisher",
+    "publishedDate": "2018-01-01",
+    "description": "Great Book",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "1234567890123"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "1234567890"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 304,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 3,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "1.0.0",
+    "panelizationSummary": {
+     "containsEpubBubbles": false,
+     "containsImageBubbles": false
+    },
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/thumbnail?id=EXID-100000",
+     "thumbnail": "http://books.google.com/books/thumbnail?id=EXID-100000"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com.br/books?id=EXID-100000",
+    "infoLink": "https://play.google.com/store/books/details?id=EXID-100000",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-EXID-100000"
+   },
+   "saleInfo": {
+    "country": "BR",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 46.53,
+     "currencyCode": "BRL"
+    },
+    "retailPrice": {
+     "amount": 46.53,
+     "currencyCode": "BRL"
+    },
+    "buyLink": "https://play.google.com/store/books/buy?id=EXID-100000&",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 4.653E7,
+       "currencyCode": "BRL"
+      },
+      "retailPrice": {
+       "amountInMicros": 4.653E7,
+       "currencyCode": "BRL"
+      },
+      "giftable": true
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "BR",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.com.br/books/download/EXID-100000"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://play.google.com/books/reader?id=EXID-100000",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "So good book"
+   }
+  }
+ ]
+}
