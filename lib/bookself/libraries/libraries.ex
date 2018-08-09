@@ -6,8 +6,10 @@ defmodule Bookself.Libraries do
   alias Bookself.Repo
 
   alias Bookself.Accounts.User
-  alias Bookself.Libraries.Library
+
   alias Bookself.Libraries.Book
+  alias Bookself.Libraries.Library
+  alias Bookself.Libraries.Item
 
   @doc """
   Upsert books
@@ -20,6 +22,11 @@ defmodule Bookself.Libraries do
         book
     end
   end
+
+  @doc """
+  Find a book by id
+  """
+  def get_book(id), do: Bookself.Repo.get(Book, id)
 
   @doc """
   Returns all libraries from user
@@ -59,5 +66,51 @@ defmodule Bookself.Libraries do
   """
   def delete_library(%Library{} = library) do
     Repo.delete(library)
+  end
+
+  @doc """
+  Get items of a library
+  """
+  def get_items(library) do
+    query = Ecto.assoc(library, :items)
+    Bookself.Repo.all(query)
+  end
+
+  @doc """
+  Returns the item of library
+  """
+  def get_library_item(%User{id: user_id}, id) do
+    query = from i in Item,
+      join: l in Library,
+      where: l.user_id == ^user_id and i.id == ^id
+
+    Repo.one(query)
+  end
+
+  @doc """
+  Create a library item to user
+  """
+  def create_library_item(%User{} = user, attrs \\ %{}) do
+    Repo.get_by!(Library, user_id: user.id, id: attrs.library_id)
+
+    %Item{}
+    |> Item.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Update the library
+  """
+  def update_library_item(%Item{} = item, attrs \\ %{}) do
+    item
+    |> Item.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Destroy the library item
+  """
+  def delete_library_item(%Item{} = item) do
+    Repo.delete(item)
   end
 end

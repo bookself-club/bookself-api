@@ -5,7 +5,7 @@ defmodule BookselfWeb.GraphQL.Libraries.Mutations.UpdateLibraryTest do
 
   setup do
     user = insert(:user)
-    library = insert(:library, user_id: user.id)
+    library = insert(:library, user: user)
 
     token = BookselfWeb.Authentication.sign_user(user)
 

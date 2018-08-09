@@ -1,6 +1,6 @@
 defmodule Bookself.LibraryFactory do
   @moduledoc """
-  Factory to create a new user.
+  Factory to create a new library.
 
       import Bookself.Factory
 
@@ -11,6 +11,7 @@ defmodule Bookself.LibraryFactory do
     quote do
       def library_factory do
         %Bookself.Libraries.Library{
+          user: build(:user),
           name: "Library"
         }
       end

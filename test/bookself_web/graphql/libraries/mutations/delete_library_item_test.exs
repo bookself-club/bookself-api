@@ -1,11 +1,13 @@
-defmodule BookselfWeb.GraphQL.Libraries.Mutations.DeleteLibraryTest do
+defmodule BookselfWeb.GraphQL.Libraries.Mutations.DeleteLibraryItemTest do
   use BookselfWeb.ConnCase, async: true
 
   import Bookself.Factory
 
   setup do
-    user = insert(:user)
+    user    = insert(:user)
     library = insert(:library, user: user)
+    book    = insert(:book)
+    item    = insert(:library_item, library: library, book: book)
 
     token = BookselfWeb.Authentication.sign_user(user)
 
@@ -13,19 +15,19 @@ defmodule BookselfWeb.GraphQL.Libraries.Mutations.DeleteLibraryTest do
       build_conn()
       |> put_req_header("authorization", "Bearer #{token}")
 
-    {:ok, conn: conn, library: library}
+    {:ok, conn: conn, item: item}
   end
 
   @query """
-  mutation ($id: ID) {
-    deleteLibrary(id: $id)
+  mutation ($id: ID!) {
+    deleteLibraryItem(id: $id)
   }
   """
-  test "delete the library", %{conn: conn, library: library} do
+  test "delete the library item", %{conn: conn, item: item} do
     options = %{
       query: @query,
       variables: %{
-        id: library.id
+        id: item.id
       }
     }
 
@@ -33,7 +35,7 @@ defmodule BookselfWeb.GraphQL.Libraries.Mutations.DeleteLibraryTest do
 
     assert %{
       "data" => %{
-        "deleteLibrary" => "Library was successfully deleted"
+        "deleteLibraryItem" => "Book was successfully removed"
       }
     } = json_response(response, 200)
   end

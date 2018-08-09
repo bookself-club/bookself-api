@@ -57,6 +57,8 @@ defmodule Bookself.Mixfile do
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
       # Simplify deployments in Elixir with OTP releases
       {:distillery, "~> 2.0.0-rc.8"},
+      # Ecto extension to support enums in models
+      {:ecto_enum, "~> 1.0"},
       # Coverage report tool for Elixir with coveralls.io integration
       {:excoveralls, "~> 0.8", only: :test},
       # Produces HTML and EPUB documentation for Elixir projects

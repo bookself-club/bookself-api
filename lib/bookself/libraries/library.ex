@@ -8,6 +8,7 @@ defmodule Bookself.Libraries.Library do
     field :name, :string
 
     belongs_to :user, Bookself.Accounts.User
+    has_many :items, Bookself.Libraries.Item
 
     timestamps()
   end
