@@ -63,6 +63,9 @@ config :logger, level: :info
 config :bookself, :google_api, Bookself.GoogleAPI.HTTPClient
 config :bookself, :google_api_url, "https://www.googleapis.com/books/v1/volumes"
 
+# Comeonin with Bcrypt
+config :comeonin, :bcrypt_log_rounds, 14
+
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
 import_config "prod.secret.exs"
