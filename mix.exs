@@ -22,7 +22,7 @@ defmodule Bookself.Mixfile do
   def application do
     [
       mod: {Bookself.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:comeonin, :logger, :runtime_tools]
     ]
   end
 
