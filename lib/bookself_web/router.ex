@@ -2,6 +2,7 @@ defmodule BookselfWeb.Router do
   use BookselfWeb, :router
 
   pipeline :api do
+    plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
     plug BookselfWeb.Context
   end

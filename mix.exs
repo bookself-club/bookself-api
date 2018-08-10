@@ -63,6 +63,8 @@ defmodule Bookself.Mixfile do
       {:excoveralls, "~> 0.8", only: :test},
       # Produces HTML and EPUB documentation for Elixir projects
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      # Elixir Plug to add CORS
+      {:cors_plug, "~> 1.5"},
       # Create test data for Elixir applications
       {:ex_machina, "~> 2.2", only: :test},
       # HTTP client
